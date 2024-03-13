@@ -3,7 +3,9 @@ import React from "react";
 function TodoItem ({todo , removeTodo}){
     return (
         <li key={todo.id}> 
-        {todo.text} </li>
+        {todo.text}
+        <button onClick={() => removeTodo(todo.id)}>Delete</button>
+         </li>
       );
 }
 
