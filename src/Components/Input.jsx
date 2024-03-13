@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 
-function todoInput({addTodo}){
+function TodoInput({addTodo}) {
     
     const [inputText, setInputText] = useState('');
     
@@ -20,7 +20,7 @@ function todoInput({addTodo}){
             <input 
             type="text"
             value = {inputText}
-            onChange={(e) => setText(e.target.value)}
+            onChange={(e) => setInputText(e.target.value)}
             placeholder='Write something...'
             />
             <button type='submit'>Add</button>
@@ -28,4 +28,4 @@ function todoInput({addTodo}){
     );
 }
 
-export default todoInput;
+export default TodoInput;
