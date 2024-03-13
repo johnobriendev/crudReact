@@ -17,6 +17,11 @@ function App() {
   return(
     <div className='app'>
       <TodoInput addTodo={addTodo}/>
+      <ul>
+      {todos.map((todo) => (
+        <TodoItem key={todo.id} todo={todo} removeTodo={removeTodo} />
+      ))}
+    </ul>
     </div>
   );
 }
