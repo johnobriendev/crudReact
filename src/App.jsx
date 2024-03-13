@@ -17,12 +17,19 @@ function App() {
     setTodos(todos.filter((todo) => todo.id !== id));
   };
 
+  const editTodo = (id, newText) => {
+    setTodos(
+      todos.map((todo) => (todo.id === id ? { ...todo, text: newText } : todo))
+    );
+  };
+  
+
   return(
     <div className='app'>
       <TodoInput addTodo={addTodo}/>
       <ul>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} removeTodo={removeTodo} />
+        <TodoItem key={todo.id} todo={todo} removeTodo={removeTodo} editTodo={editTodo} />
       ))}
     </ul>
     </div>
