@@ -1,7 +1,7 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState, useEffect } from "react";
 
-function TodoItem ({todo , removeTodo}){
+
+function TodoItem ({todo , removeTodo, editTodo}){
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(todo.text);
 
@@ -10,10 +10,11 @@ function TodoItem ({todo , removeTodo}){
         setEditText(todo.text);
     };
     const handleBlur = () => {
-        if (editText !== todo.text && isEditing) {
-          editTodo(todo.id, editText);
-        }
-        setIsEditing(false);
+            if (editText !== todo.text && isEditing) {
+              editTodo(todo.id, editText);
+            }
+            setIsEditing(false);
+         
     };
 
     
@@ -29,7 +30,7 @@ function TodoItem ({todo , removeTodo}){
                     onBlur={handleBlur}
                 />
                 ) : (
-                (todo.text)
+                todo.text
             )}
 
             <button onClick={handleEdit}>Edit</button>
@@ -43,3 +44,4 @@ function TodoItem ({todo , removeTodo}){
 }
 
 export default TodoItem;
+

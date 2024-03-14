@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './App.css'
-import TodoInput from './Components/Input';
-import TodoItem from './Components/Todo';
+import TodoInput from './Components/TodoInput';
+import TodoItem from './Components/TodoItem';
 
 function App() {
   const [todos, setTodos] = useState([]); 
@@ -29,7 +29,11 @@ function App() {
       <TodoInput addTodo={addTodo}/>
       <ul>
       {todos.map((todo) => (
-        <TodoItem key={todo.id} todo={todo} removeTodo={removeTodo} editTodo={editTodo} />
+        <TodoItem 
+        key={todo.id} 
+        todo={todo} 
+        removeTodo={removeTodo} 
+        editTodo={editTodo} />
       ))}
     </ul>
     </div>
@@ -37,3 +41,5 @@ function App() {
 }
 
 export default App;
+
+
