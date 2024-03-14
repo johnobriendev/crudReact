@@ -1,0 +1,8 @@
+.app{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+li button{
+  margin-left: 20px;
+}

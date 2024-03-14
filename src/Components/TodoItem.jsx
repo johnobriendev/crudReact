@@ -7,13 +7,17 @@ function TodoItem ({todo , removeTodo, editTodo}){
 
     const handleEdit = () => {
         setIsEditing(!isEditing);
-        setEditText(todo.text);
+        //setEditText(todo.text);
     };
-    const handleBlur = () => {
-            if (editText !== todo.text && isEditing) {
-              editTodo(todo.id, editText);
-            }
-            setIsEditing(false);
+    const handleBlur = (event) => {
+        if (event.type === 'blur' || event.key === 'Enter'){
+            if (editText !== todo.text) {
+                editTodo(todo.id, editText);
+              }
+              setIsEditing(false);
+        }     
+        
+      
          
     };
 
@@ -28,12 +32,13 @@ function TodoItem ({todo , removeTodo, editTodo}){
                     value={editText}
                     onChange={(e) => setEditText(e.target.value)}
                     onBlur={handleBlur}
+                    onKeyDown={handleBlur}
                 />
                 ) : (
-                todo.text
+                    <span onClick={handleEdit}>{todo.text}</span>
+                    //todo.text
             )}
 
-            <button onClick={handleEdit}>Edit</button>
             <button onClick={() => removeTodo(todo.id)}>Delete</button>
             
 
