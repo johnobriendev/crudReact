@@ -26,6 +26,11 @@ function App() {
 
   return(
     <div className='app'>
+      <div>
+        <h4>Pending Tasks</h4>
+        <p>Click to Edit</p>
+      </div>
+      
       <TodoInput addTodo={addTodo}/>
       <ul>
       {todos.map((todo) => (

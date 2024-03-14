@@ -11,6 +11,7 @@
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: flex-start;
 }
 ul{
  width: 100%;
@@ -23,6 +24,9 @@ li{
   align-items: center;
 
   margin-bottom: 20px;
+}
+li span{
+  flex:1;
 }
 li input{
   flex:1;
