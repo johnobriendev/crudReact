@@ -1,9 +1,10 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useRef } from "react";
 
 
 function TodoItem ({todo , removeTodo, editTodo}){
     const [isEditing, setIsEditing] = useState(false);
     const [editText, setEditText] = useState(todo.text);
+    
 
     const handleEdit = () => {
         setIsEditing(!isEditing);
@@ -16,9 +17,6 @@ function TodoItem ({todo , removeTodo, editTodo}){
               }
               setIsEditing(false);
         }     
-        
-      
-         
     };
 
     
@@ -33,6 +31,8 @@ function TodoItem ({todo , removeTodo, editTodo}){
                     onChange={(e) => setEditText(e.target.value)}
                     onBlur={handleBlur}
                     onKeyDown={handleBlur}
+                    
+                    autoFocus
                 />
                 ) : (
                     <span onClick={handleEdit}>{todo.text}</span>
